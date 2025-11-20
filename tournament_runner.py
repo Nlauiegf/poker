@@ -2,6 +2,7 @@
 Main Tournament Runner
 Orchestrates the entire poker tournament from start to finish
 """
+import sys
 import logging
 import time
 import random
@@ -55,8 +56,8 @@ class TournamentRunner:
             level=logging.DEBUG,
             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
             handlers=[
-                logging.FileHandler(log_filename),
-                logging.StreamHandler()  # Also log to console
+                logging.FileHandler(log_filename, encoding='utf-8'),
+                logging.StreamHandler(sys.stdout, encoding='utf-8')  # Also log to console
             ]
         )
     
