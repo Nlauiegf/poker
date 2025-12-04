@@ -194,6 +194,11 @@ class PokerGame:
             if not player_id:
                 break
             
+            # Skip players who are all-in
+            if self.player_chips[player_id] == 0:
+                self.advance_to_next_player()
+                continue
+            
             bot = self.player_bots[player_id]
             game_state = self.get_game_state()
             player_hand = self.get_player_hand(player_id)
